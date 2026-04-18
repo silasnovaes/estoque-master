@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Estoque | Silas Novaes</title>
+    
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <link rel="stylesheet" href="assets/scss/main.css">
+</head>
+<body class="theme-light">
+
+    <header class="c-header">
+        <div class="o-container c-header__wrapper">
+            <div class="c-header__brand">
+                <img src="assets/img/logo.png" alt="Silas Novaes" class="c-header__logo" onerror="this.src='https://placehold.co/180x50/1e293b/ffffff?text=Silas+Novaes&font=Montserrat'">
+                <div class="c-header__divider"></div>
+                <h1 class="c-header__title">Gestão de Estoque</h1>
+            </div>
+            
+            <button id="theme-toggle" class="c-theme-toggle" aria-label="Alternar Tema">
+                <i class="ph ph-moon c-theme-toggle__icon"></i>
+            </button>
+        </div>
+    </header>
+
+    <div id="easter-egg" class="c-easter-egg">
+        <div class="o-container">
+            <div class="c-easter-egg__content">
+                <i class="ph-fill ph-student c-easter-egg__icon"></i>
+                <p>Professor, não sei se o senhor vai testar esse programa que desenvolvi, mas quero lhe dizer que o senhor é uma inspiração. No primeiro semestre na disciplina de front end tinhamos que entregar um site. Aquele desafio me motivou e hoje estou evoluindo aquele site para um projeto muito maior, com gestão de indicações e um blog CMS com backend hexagonal e ddd e front end usando itcsss e javascript modular</p>
+            </div>
+        </div>
+    </div>
+
+    <main class="o-container o-layout">
+        
+        <aside class="o-layout__sidebar">
+            <div class="c-card">
+                <div class="c-card__header">
+                    <i class="ph-fill ph-package c-card__icon"></i>
+                    <h2 class="c-card__title">Novo Produto</h2>
+                </div>
+                
+                <form id="form-cadastro" class="c-form">
+                    <div class="c-form__group">
+                        <label for="nome" class="c-form__label">Nome do Produto</label>
+                        <div class="c-form__input-wrapper">
+                            <i class="ph ph-text-t c-form__input-icon"></i>
+                            <input type="text" id="nome" name="nome" class="c-form__input" required placeholder="Ex: Monitor Ultrawide 34&quot;">
+                        </div>
+                    </div>
+                    
+                    <div class="c-form__row">
+                        <div class="c-form__group">
+                            <label for="preco" class="c-form__label">Preço (R$)</label>
+                            <div class="c-form__input-wrapper">
+                                <i class="ph ph-currency-dollar c-form__input-icon"></i>
+                                <input type="number" id="preco" name="preco" class="c-form__input" step="0.01" min="0.01" required placeholder="0.00">
+                            </div>
+                        </div>
+                        
+                        <div class="c-form__group">
+                            <label for="quantidadeEstoque" class="c-form__label">Estoque</label>
+                            <div class="c-form__input-wrapper">
+                                <i class="ph ph-stack c-form__input-icon"></i>
+                                <input type="number" id="quantidadeEstoque" name="quantidadeEstoque" class="c-form__input" min="0" required placeholder="0">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="c-button c-button--primary">
+                        <span class="c-button__text">Cadastrar Produto</span>
+                        <i class="ph-bold ph-plus"></i>
+                    </button>
+                </form>
+            </div>
+        </aside>
+
+        <section class="o-layout__main">
+            <div class="c-section-header">
+                <h2 class="c-section-header__title">Inventário Atual</h2>
+                <span id="contador-produtos" class="c-badge">0 itens</span>
+            </div>
+            
+            <div id="grid-produtos" class="o-grid">
+                <div class="c-skeleton-card"></div>
+                <div class="c-skeleton-card"></div>
+                <div class="c-skeleton-card"></div>
+            </div>
+        </section>
+    </main>
+
+    <div id="toast-container" class="c-toast-container"></div>
+
+    <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

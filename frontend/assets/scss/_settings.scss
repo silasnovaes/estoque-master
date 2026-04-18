@@ -1,0 +1,57 @@
+/*
+  Settings Layer: Design Tokens and Variables
+*/
+
+// Typography
+$font-family-base: 'Inter', sans-serif;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Spacing
+$spacer: 1rem;
+
+// Border Radius
+$border-radius: 0.5rem;
+
+// Box Shadow
+$box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+
+// Transitions
+$transition-base: all 0.3s ease;
+
+// Light Mode Palette
+:root {
+  --color-primary: #007bff; // Bootstrap Primary
+  --color-secondary: #6c757d; // Bootstrap Secondary
+  --color-success: #28a745; // Bootstrap Success
+  --color-danger: #dc3545; // Bootstrap Danger
+  --color-warning: #ffc107; // Bootstrap Warning
+  --color-info: #17a2b8; // Bootstrap Info
+  --color-light: #f8f9fa; // Bootstrap Light
+  --color-dark: #343a40; // Bootstrap Dark
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --body-bg: var(--color-light);
+  --body-color: var(--color-dark);
+  --card-bg: var(--color-white);
+  --card-color: var(--color-dark);
+  --header-bg: var(--color-white);
+  --header-color: var(--color-dark);
+  --input-bg: var(--color-white);
+  --input-color: var(--color-dark);
+}
+
+// Dark Mode Palette
+body.theme-dark {
+  --body-bg: #1e293b; // Dark Grey
+  --body-color: #f9fafb; // Light Grey
+  --card-bg: #334155; // Darker Grey
+  --card-color: #f9fafb;
+  --header-bg: #334155;
+  --header-color: #f9fafb;
+  --input-bg: #475569; // Even Darker Grey
+  --input-color: #f9fafb;
+}

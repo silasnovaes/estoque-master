@@ -1,0 +1,30 @@
+/*
+  Objects Layer: Grid and Structural Layouts
+*/
+
+.o-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacer;
+}
+
+.o-layout {
+  display: flex;
+  gap: $spacer;
+  padding: $spacer;
+}
+
+.o-layout__sidebar {
+  width: 300px;
+}
+
+.o-layout__main {
+  flex: 1;
+}
+
+.o-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacer;
+}

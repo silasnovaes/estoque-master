@@ -1,0 +1,311 @@
+/*
+  Components Layer: Reusable UI Components (BEM)
+*/
+
+// Theme Toggle
+.c-theme-toggle {
+  background-color: transparent;
+  border: none;
+  color: var(--header-color);
+  transition: color var(--transition-base);
+
+  &:hover {
+    color: var(--color-primary);
+  }
+}
+
+.c-header {
+    background-color: var(--header-bg);
+    color: var(--header-color);
+    padding: 1rem 0;
+    transition: background-color var(--transition-base), color var(--transition-base);
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__brand {
+        display: flex;
+        align-items: center;
+    }
+
+    &__logo {
+        width: 40px;
+        margin-right: 1rem;
+    }
+
+    &__divider {
+        width: 1px;
+        height: 24px;
+        background-color: var(--color-secondary);
+        margin: 0 1rem;
+        opacity: 0.5;
+    }
+
+    &__title {
+        font-size: 1.25rem;
+    }
+}
+
+// Card
+.c-card {
+  background-color: var(--card-bg);
+  color: var(--card-color);
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  padding: $spacer;
+  transition: background-color var(--transition-base), color var(--transition-base);
+
+    &__header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    &__icon {
+        font-size: 1.25rem;
+        margin-right: 0.5rem;
+        color: var(--color-primary);
+    }
+
+    &__title {
+        font-size: 1.25rem;
+        font-weight: var(--font-weight-semibold);
+    }
+}
+
+// Form
+.c-form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacer / 2;
+
+    &__group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__label {
+        font-size: 0.875rem;
+        margin-bottom: 0.25rem;
+    }
+
+    &__input-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    &__input {
+        width: 100%;
+        padding: 0.75rem 2.5rem;
+        border: 1px solid var(--color-secondary);
+        border-radius: $border-radius;
+        background-color: var(--input-bg);
+        color: var(--input-color);
+        transition: border-color var(--transition-base), background-color var(--transition-base), color var(--transition-base);
+
+        &:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+    }
+
+    &__input-icon {
+        position: absolute;
+        left: 0.75rem;
+        color: var(--color-secondary);
+        opacity: 0.5;
+    }
+
+    &__row {
+        display: flex;
+        gap: $spacer / 2;
+    }
+}
+
+// Button
+.c-button {
+  padding: 0.75rem $spacer;
+  border-radius: $border-radius;
+  font-weight: var(--font-weight-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: $transition-base;
+
+  &--primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+
+    &:hover {
+      background-color: darken(var(--color-primary), 10%);
+    }
+  }
+}
+
+// Product Card
+.c-product-card {
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    background-color: var(--card-bg);
+    color: var(--card-color);
+    transition: background-color var(--transition-base), color var(--transition-base);
+
+    &__image-wrapper {
+        height: 200px;
+        overflow: hidden;
+        border-radius: $border-radius $border-radius 0 0;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__body {
+        padding: $spacer;
+    }
+
+    &__title {
+        font-size: 1.125rem;
+        margin-bottom: 0.5rem;
+    }
+
+    &__price {
+        font-size: 1rem;
+        font-weight: var(--font-weight-bold);
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    &__stock {
+        font-size: 0.875rem;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        color: var(--color-secondary);
+
+        &--low {
+            color: var(--color-warning);
+        }
+
+        &--out {
+            color: var(--color-danger);
+        }
+    }
+
+    &__footer {
+        padding: 0 $spacer $spacer $spacer;
+    }
+}
+
+// Toast
+.c-toast-container {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+}
+
+.c-toast {
+    background-color: var(--color-success);
+    color: var(--color-white);
+    border-radius: $border-radius;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: $box-shadow;
+    transition: all 0.3s ease;
+
+    &--success {
+        background-color: var(--color-success);
+    }
+
+    &--error {
+        background-color: var(--color-danger);
+    }
+
+    &__icon {
+        font-size: 1.25rem;
+    }
+
+    &__text {
+        font-size: 1rem;
+    }
+
+    &.is-closing {
+        animation: toast-close 0.3s forwards;
+    }
+
+    @keyframes toast-close {
+        to {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+    }
+}
+
+// Section Header
+.c-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $spacer;
+}
+
+.c-section-header__title {
+    font-size: 1.5rem;
+}
+
+// Badge
+.c-badge {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    padding: 0.25rem 0.5rem;
+    border-radius: $border-radius;
+    font-size: 0.75rem;
+}
+
+// Skeleton Card
+.c-skeleton-card {
+    width: 100%;
+    height: 200px;
+    background-color: #eee;
+    border-radius: $border-radius;
+    animation: skeleton-loading 1.2s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-color: #eee;
+    }
+    100% {
+        background-color: #ddd;
+    }
+}
+
+// Easter Egg
+.c-easter-egg {
+    background-color: var(--color-success);
+    color: var(--color-white);
+    padding: $spacer;
+    border-radius: $border-radius;
+    margin-bottom: $spacer;
+
+    &__content {
+        display: flex;
+        align-items: center;
+        gap: $spacer;
+    }
+
+    &__icon {
+        font-size: 2rem;
+    }
+}
